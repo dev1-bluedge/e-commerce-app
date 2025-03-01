@@ -33,14 +33,34 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack initialRouteName="index">
+      <Stack initialRouteName="(tabs)">
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="welcome" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
         <Stack.Screen name="productdetails" options={{ headerShown: false }} />
         <Stack.Screen name="summary" options={{ headerShown: false }} />
         <Stack.Screen name="deliverymethod" options={{ headerShown: false }} />
         <Stack.Screen name="paymentmethod" options={{ headerShown: false }} />
         <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="order-complete" options={{ headerShown: false }} />
+        <Stack.Screen name="login" options={{ headerShown: false }} />
+        <Stack.Screen name="forgot-password" options={{ headerShown: false }} />
+        <Stack.Screen name="reset-password" options={{ headerShown: false }} />
+        <Stack.Screen name="myorders" options={{ headerShown: false }} />
+        <Stack.Screen name="myreviews" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="code-verification"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="order-cancelled-details"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="order-complete-details"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="order-cancelled" options={{ headerShown: false }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

@@ -48,119 +48,135 @@ const Index = () => {
       price: 321,
       image: "bag.png",
     },
+    {
+      name: "Puma Sneakers",
+      price: 321,
+      image: "bag.png",
+    },
+    {
+      name: "Puma Sneakers",
+      price: 321,
+      image: "bag.png",
+    },
   ];
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      style={{ height: "100%", backgroundColor: "white" }}
-    >
-      <StatusBar style="dark" />
-      <SafeAreaView style={styles.container}>
-        <View style={styles.innerBox}>
-          <View style={styles.textarea}>
-            <View>
-              <Text style={styles.text}>Hello, Naufal</Text>
-              <Text style={styles.textbold}>Welcome Back!</Text>
-            </View>
-            <TouchableOpacity
-              activeOpacity={0.4}
-              style={{ marginBottom: 4, position: "relative" }}
-            >
-              <AntDesign name="shoppingcart" size={24} />
-              <View style={styles.CartLenghtBox}>
-                <Text style={styles.CartLenght}>1</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        <View style={{ ...styles.searchBox, width: screenWidth * 0.85 }}>
-          <View style={{ ...styles.Box, width: screenWidth * 0.7 }}>
-            <Entypo name="magnifying-glass" size={22} color={"#D3D3D3"} />
-            <TextInput placeholder="Why do you need" style={styles.input} />
-          </View>
-          <View style={styles.iconBox}>
-            <Ionicons name="filter-sharp" size={24} color={"gray"} />
-          </View>
-        </View>
-        <View style={styles.catagoryBox}>
-          <View style={styles.innerCatagoryBox}>
-            <View style={styles.catagoriesBox}>
-              <View style={styles.firstBox}>
-                <FontAwesome5 name="fire-alt" size={24} color={"gray"} />
-              </View>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={styles.container}>
+        <StatusBar style="dark" />
+        <SafeAreaView>
+          <View style={{ ...styles.innerBox, width: screenWidth * 0.83 }}>
+            <View style={styles.textarea}>
               <View>
-                <Text style={[styles.text, { color: "white" }]}>Popular</Text>
+                <Text style={styles.text}>Hello, Naufal</Text>
+                <Text style={styles.textbold}>Welcome Back!</Text>
               </View>
+              <TouchableOpacity
+                activeOpacity={0.4}
+                style={{ marginBottom: 4, position: "relative" }}
+              >
+                <AntDesign name="shoppingcart" size={26} />
+                <View style={styles.CartLenghtBox}>
+                  <Text style={styles.CartLenght}>1</Text>
+                </View>
+              </TouchableOpacity>
             </View>
-            <View style={styles.box}></View>
-            <View style={styles.box}></View>
-            <View style={styles.box}></View>
           </View>
-        </View>
 
-        <View style={styles.menu}>
-          <FlatList
-            data={arr}
-            numColumns={2}
-            contentContainerStyle={{ gap: 10 }}
-            columnWrapperStyle={{
-              justifyContent: "space-between",
-              flexWrap: "wrap",
+          <View style={{ ...styles.searchBox, width: screenWidth * 0.85 }}>
+            <View style={{ ...styles.Box, width: screenWidth * 0.7 }}>
+              <Entypo name="magnifying-glass" size={22} color={"#D3D3D3"} />
+              <TextInput placeholder="Why do you need" style={styles.input} />
+            </View>
+            <View style={styles.iconBox}>
+              <Ionicons name="filter-sharp" size={24} color={"gray"} />
+            </View>
+          </View>
+          <View style={{ ...styles.catagoryBox, width: screenWidth * 0.86 }}>
+            <View style={styles.innerCatagoryBox}>
+              <View style={styles.catagoriesBox}>
+                <View style={styles.firstBox}>
+                  <FontAwesome5 name="fire-alt" size={24} color={"gray"} />
+                </View>
+                <View>
+                  <Text style={[styles.text, { color: "white" }]}>Popular</Text>
+                </View>
+              </View>
+              <View style={styles.box}></View>
+              <View style={styles.box}></View>
+              <View style={styles.box}></View>
+            </View>
+          </View>
+
+          <View
+            style={{
+              ...styles.menu,
+              width: screenWidth * 0.86,
             }}
-            renderItem={({ item, index }) => {
-              const dynamicHeight = Math.ceil(
-                Math.random() * (300 - 230) + 230
-              );
-              return (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => router.push("/productdetails")}
-                  activeOpacity={0.7}
-                  style={[
-                    styles.items,
-                    {
-                      height: dynamicHeight,
-                      position: "relative",
-                      width: screenWidth * 0.41,
-                    },
-                  ]}
-                >
-                  <Image
-                    source={require(`../../assets/images/puma.png`)}
-                    style={{
-                      height: 25,
-                      width: 25,
-                      objectFit: "contain",
-                      position: "absolute",
-                      left: 10,
-                      top: 8,
-                    }}
-                  />
-                  <Image
-                    source={require(`../../assets/images/bag.png`)}
-                    style={{
-                      height: "77%",
-                      width: "100%",
-                      objectFit: "contain",
-                    }}
-                  />
-                  <View style={styles.itemsBox}>
-                    <View style={styles.textBox}>
-                      <Text>{item.name}</Text>
-                      <Text style={[styles.textbold, { fontSize: 14 }]}>
-                        ${item.price}
-                      </Text>
+          >
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              data={arr}
+              numColumns={2}
+              scrollEnabled={false}
+              contentContainerStyle={{ gap: 10, marginBottom: 30 }}
+              columnWrapperStyle={{
+                justifyContent: "space-between",
+                flexWrap: "wrap",
+              }}
+              renderItem={({ item, index }) => {
+                const dynamicHeight = Math.ceil(
+                  Math.random() * (300 - 230) + 230
+                );
+                return (
+                  <TouchableOpacity
+                    key={index}
+                    onPress={() => router.push("/productdetails")}
+                    activeOpacity={0.7}
+                    style={[
+                      styles.items,
+                      {
+                        height: dynamicHeight,
+                        position: "relative",
+                        width: screenWidth * 0.41,
+                      },
+                    ]}
+                  >
+                    <Image
+                      source={require(`../../assets/images/puma.png`)}
+                      style={{
+                        height: 25,
+                        width: 25,
+                        objectFit: "contain",
+                        position: "absolute",
+                        left: 10,
+                        top: 8,
+                      }}
+                    />
+                    <Image
+                      source={require(`../../assets/images/bag.png`)}
+                      style={{
+                        height: "77%",
+                        width: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                    <View style={styles.itemsBox}>
+                      <View style={styles.textBox}>
+                        <Text>{item.name}</Text>
+                        <Text style={[styles.textbold, { fontSize: 14 }]}>
+                          ${item.price}
+                        </Text>
+                      </View>
+                      <AntDesign name="heart" size={15} />
                     </View>
-                    <AntDesign name="heart" size={15} />
-                  </View>
-                </TouchableOpacity>
-              );
-            }}
-          />
-        </View>
-      </SafeAreaView>
+                  </TouchableOpacity>
+                );
+              }}
+            />
+          </View>
+        </SafeAreaView>
+      </View>
     </ScrollView>
   );
 };

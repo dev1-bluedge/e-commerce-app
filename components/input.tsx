@@ -10,17 +10,28 @@ import { TextInput } from "react-native-paper";
 
 interface InputProps {
   width: number;
-  label: string;
+  label?: string;
+  height?: number;
 }
 
-const Input = ({ width, label }: InputProps) => {
-  const { width: screenWidth } = useWindowDimensions();
+const Input = ({ width, label, height }: InputProps) => {
+  const { width: screenWidth, height: screenHeight } = useWindowDimensions();
 
   return (
-    <View style={[styles.container, { width: (screenWidth * width) / 100 }]}>
+    <View
+      style={[
+        styles.container,
+        {
+          width: (screenWidth * width) / 100,
+        },
+      ]}
+    >
       <TextInput
         label={label}
-        style={styles.input}
+        style={[
+          styles.input,
+          { height: height ? (screenHeight * height) / 100 : 40 },
+        ]}
         selectionColor="white"
         mode="outlined"
         activeOutlineColor="black"
@@ -36,7 +47,6 @@ const styles = StyleSheet.create({
     alignSelf: "center", // Centers the input within its parent
   },
   input: {
-    height: 40,
     marginBottom: 10,
     backgroundColor: "white",
   },

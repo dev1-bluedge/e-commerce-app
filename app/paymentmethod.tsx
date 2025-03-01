@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  useWindowDimensions,
   View,
 } from "react-native";
 import React from "react";
@@ -13,6 +14,7 @@ import Line from "@/components/line";
 import CustomButton from "@/components/CustomButton";
 
 const Paymentmethod = () => {
+  const { width: screenWidth, height: screenHeight } = useWindowDimensions();
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.main2}>
       <View style={styles.main}>
@@ -56,7 +58,12 @@ const Paymentmethod = () => {
             </View>
           </View>
 
-          <CustomButton path="" text="Pay $10" marginTopvalue={15} />
+          <CustomButton
+            path="/order-complete"
+            text="Pay $10"
+            marginTopvalue={15}
+            width={screenWidth * 0.9}
+          />
         </View>
       </View>
     </ScrollView>

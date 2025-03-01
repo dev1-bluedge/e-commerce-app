@@ -18,9 +18,11 @@ const Profile = () => {
       iconName: "circle-info",
       screenName: "My Orders",
       iconProvider: "FontAwesome6",
+      path: "myorders",
     },
     {
       iconName: "star",
+      path: "myreviews",
       screenName: "My Reviews",
       iconProvider: "Entypo",
     },
@@ -77,6 +79,7 @@ const Profile = () => {
         {screens.map((item, idx) => {
           return (
             <TouchableOpacity
+              onPress={() => item.path && router.push(`/${item.path}` as any)}
               style={styles.boxes}
               key={idx}
               activeOpacity={0.5}

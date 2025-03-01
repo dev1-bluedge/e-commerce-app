@@ -17,7 +17,7 @@ import Checkbox from "expo-checkbox";
 import CustomButton from "@/components/CustomButton";
 import Svg, { Path } from "react-native-svg";
 
-const Index = () => {
+const Login = () => {
   const [isChecked, setChecked] = useState(true);
   const { width: screenWidth, height: screenHeight } = useWindowDimensions();
   return (
@@ -25,9 +25,9 @@ const Index = () => {
       showsVerticalScrollIndicator={false}
       style={{ backgroundColor: "white" }}
     >
-      <View style={styles.main}>
-        <StatusBar style="dark" />
+      <View style={[styles.main, { height: screenHeight * 1 }]}>
         <View style={{ width: screenWidth * 0.9 }}>
+          <StatusBar style="dark" />
           <View style={styles.iconBox}>
             <Svg
               viewBox="0 0 16 16"
@@ -44,17 +44,14 @@ const Index = () => {
             </Svg>
           </View>
           <View>
-            <Text style={styles.heading}>Create Account</Text>
+            <Text style={styles.heading}>Log in</Text>
           </View>
           <View style={styles.mainBox}>
             <View>
-              <Text style={styles.bold}>Username</Text>
-              <Input width={90} label=" Name*" />
-            </View>
-            <View style={styles.box}>
-              <Text style={styles.bold}>Email</Text>
+              <Text style={styles.bold}>Email address</Text>
               <Input width={90} label=" Email*" />
             </View>
+
             <View style={styles.box}>
               <Text style={styles.bold}>Password</Text>
               <View style={[styles.container, { width: screenWidth * 0.9 }]}>
@@ -69,20 +66,12 @@ const Index = () => {
               </View>
             </View>
             <View style={styles.section}>
-              <Checkbox
-                style={styles.checkbox}
-                value={isChecked}
-                onValueChange={setChecked}
-                color={isChecked ? "black" : undefined}
-              />
-              <Text style={styles.paragraph}>
-                I accept the terms and privacy and policy
-              </Text>
+              <Text style={styles.paragraph}>Forgot password?</Text>
             </View>
             <View style={{ width: screenWidth * 0.9 }}>
               <CustomButton
-                path="login"
-                text="Create account"
+                path="forgot-password"
+                text="login"
                 marginTopvalue={15}
                 width={screenWidth * 0.9}
               />
@@ -136,23 +125,21 @@ const Index = () => {
                 <AntDesign name="apple1" size={25} />
               </TouchableOpacity>
             </View>
-            <TouchableOpacity
-              style={{ alignItems: "center", marginTop: 20 }}
-              activeOpacity={0.6}
-              onPress={() => router.push("/login")}
-            >
-              <Text style={styles.paragraph}>
-                Already have an account? Log in
-              </Text>
-            </TouchableOpacity>
           </View>
         </View>
+        <TouchableOpacity
+          style={{ alignItems: "center" }}
+          activeOpacity={0.6}
+          onPress={() => router.push("/")}
+        >
+          <Text style={styles.paragraph}>Already have an account? Sign up</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
 };
 
-export default Index;
+export default Login;
 
 const styles = StyleSheet.create({
   container: {
@@ -167,6 +154,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
     paddingVertical: 4,
+    justifyContent: "space-between",
   },
   iconBox: {
     flexDirection: "row",
@@ -210,7 +198,7 @@ const styles = StyleSheet.create({
   },
   section: {
     flexDirection: "row",
-    alignItems: "center",
+    justifyContent: "flex-end",
   },
   paragraph: {
     fontSize: 15,

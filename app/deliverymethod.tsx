@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  useWindowDimensions,
   View,
 } from "react-native";
 import React from "react";
@@ -12,8 +13,8 @@ import Line from "@/components/line";
 import { router } from "expo-router";
 import Input from "@/components/input";
 import CustomButton from "@/components/CustomButton";
-const windowWidth = Dimensions.get("window").width;
 const Deliverymethod = () => {
+  const { width: screenWidth, height: screenHeight } = useWindowDimensions();
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.main2}>
       <View style={styles.main}>
@@ -87,6 +88,7 @@ const Deliverymethod = () => {
             path="paymentmethod"
             text="Place Order"
             marginTopvalue={15}
+            width={screenWidth * 0.9}
           />
         </View>
       </View>
