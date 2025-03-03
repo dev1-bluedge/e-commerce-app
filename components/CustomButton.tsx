@@ -7,7 +7,7 @@ interface CustomButtonProps {
   text: string;
   path: string;
   marginTopvalue: number;
-  width?: number;
+  width: number;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -20,7 +20,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
     <TouchableOpacity
       activeOpacity={0.8}
       style={[styles.btns, { marginTop: marginTopvalue || 0, width: width }]}
-      onPress={() => router.push(`${path}`)}
+      onPress={() => router.push(`${path}` as any)}
     >
       <Text style={[styles.total, { color: "white" }]}>{text}</Text>
     </TouchableOpacity>
@@ -32,7 +32,7 @@ export default CustomButton;
 const styles = StyleSheet.create({
   total: {
     fontWeight: "bold",
-    fontSize: 22,
+    fontSize: 20,
   },
   btns: {
     backgroundColor: colors.buttonColor,
