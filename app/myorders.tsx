@@ -55,10 +55,7 @@ const Myorders = () => {
       <View style={styles.listcontainer}>
         {data.map((item, idx) => {
           return (
-            <View
-              style={[styles.item, { width: screenWidth * 0.9 }]}
-              key={item.date}
-            >
+            <View style={[styles.item, { width: screenWidth * 0.9 }]} key={idx}>
               <View style={styles.textBox}>
                 <View>
                   <Text style={styles.bold}>Order#: {item.orderId}</Text>

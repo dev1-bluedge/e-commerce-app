@@ -79,7 +79,10 @@ const Favourite = () => {
   ];
 
   return (
-    <ScrollView style={{ height: "100%", backgroundColor: "white" }}>
+    <ScrollView
+      style={{ height: "100%", backgroundColor: "white" }}
+      showsVerticalScrollIndicator={false}
+    >
       <View style={styles.container}>
         <View style={styles.innercontainer}>
           <Ionicons
@@ -162,7 +165,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.shade,
   },
   Inneritem: {
-    gap: 20,
+    gap: 10,
     flexDirection: "row",
     alignItems: "center",
   },

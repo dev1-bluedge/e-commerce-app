@@ -12,7 +12,6 @@ import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -48,6 +47,7 @@ export default function RootLayout() {
         <Stack.Screen name="reset-password" options={{ headerShown: false }} />
         <Stack.Screen name="myorders" options={{ headerShown: false }} />
         <Stack.Screen name="myreviews" options={{ headerShown: false }} />
+        <Stack.Screen name="signup" options={{ headerShown: false }} />
         <Stack.Screen
           name="code-verification"
           options={{ headerShown: false }}

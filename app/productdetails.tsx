@@ -1,18 +1,17 @@
 import {
   Dimensions,
-  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
+import { Image } from "expo-image";
 import React, { useState } from "react";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import Swiper from "react-native-swiper";
 import { colors } from "@/components/theme";
 
-const { width } = Dimensions.get("window");
 const Productdetails = () => {
   const [isActice, setIsactive] = useState(0);
   let data = [
@@ -26,12 +25,10 @@ const Productdetails = () => {
   ];
 
   const images = [
-    { id: 1, source: require("../assets/images/shoes.png") },
-    { id: 2, source: require("../assets/images/bag.png") },
-    { id: 3, source: require("../assets/images/bag.png") },
+    "https://img.freepik.com/premium-vector/shoe-social-media-cover-banner-template-exclusive-collection-sneakers-facebook-cover-photo-design_755018-1873.jpg?semt=ais_hybrid",
+    "https://img.freepik.com/premium-vector/new-arrival-seasonal-shoes-sale-social-media-web-banner_620267-120.jpg?semt=ais_hybrid",
   ];
 
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
   return (
     <View style={styles.container}>
       <View style={styles.icons}>
@@ -41,21 +38,14 @@ const Productdetails = () => {
 
       {/* Swiper Component */}
       <View style={styles.ImageBox}>
-        <Swiper
-          style={styles.wrapper}
-          showsButtons={true}
-          dotColor="rgba(0, 0, 0, 0.12)"
-          activeDotColor={colors.buttonColor}
-          paginationStyle={styles.pagination}
-        >
-          {images.map((item) => (
-            <View key={item.id} style={styles.slide}>
-              <Image source={item.source} style={styles.image} />
+        <Swiper showsButtons={true} style={styles.wrapper} autoplay={true}>
+          {images.map((image, index) => (
+            <View key={index} style={styles.slide}>
+              <Image source={{ uri: image }} style={styles.image} />
             </View>
           ))}
         </Swiper>
       </View>
-
       {/* Product Details */}
       <View style={styles.details}>
         {data.map((item, idx) => {
@@ -172,9 +162,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   ImageBox: {
-    height: "50%",
-    width: "100%",
+    height: "50%", // 50% of the screen height
+    width: "100%", // 100% of the screen width
     backgroundColor: colors.shade,
+    justifyContent: "center",
   },
   icons: {
     flexDirection: "row",
@@ -206,21 +197,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
   wrapper: {
-    height: 200,
-    width: width - 40,
-    borderRadius: 10,
-    overflow: "hidden",
+    height: "100%", //Adjust the height as needed.
+    width: "100%", //Adjust the width as needed.
   },
   slide: {
-    height: "100%",
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
   image: {
-    width: 250,
-    height: 250,
-    resizeMode: "contain",
+    width: "100%", //Adjust the width of the image
+    height: "100%", //Adjust the height of the image
   },
   pagination: {
     bottom: 10,

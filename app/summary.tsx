@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  useWindowDimensions,
   View,
 } from "react-native";
 import React from "react";
@@ -14,6 +15,7 @@ import CustomButton from "@/components/CustomButton";
 import { colors } from "@/components/theme";
 
 const Summary = () => {
+  const { width: screenWidth, height: screenHeight } = useWindowDimensions();
   return (
     <View style={styles.main}>
       <View style={styles.innercontainer}>
@@ -56,6 +58,7 @@ const Summary = () => {
           path="deliverymethod"
           text="Continue"
           marginTopvalue={0}
+          width={screenWidth * 0.9}
         />
       </View>
     </View>
