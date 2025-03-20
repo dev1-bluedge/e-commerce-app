@@ -1,10 +1,16 @@
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  useWindowDimensions,
+} from "react-native";
 import React from "react";
-const windowWidth = Dimensions.get("window").width;
 const Summarybox = () => {
+  const { width: screenWidth, height: screenHeight } = useWindowDimensions();
   return (
     <View style={styles.content}>
-      <View style={styles.box}>
+      <View style={[styles.box, { width: screenWidth * 0.9 }]}>
         <View>
           <Text>Puma Sneakers</Text>
           <Text style={[styles.bold, { marginTop: 5 }]}>
@@ -23,7 +29,6 @@ export default Summarybox;
 
 const styles = StyleSheet.create({
   box: {
-    width: windowWidth - 30,
     borderRadius: 10,
     padding: 25,
     flexDirection: "row",

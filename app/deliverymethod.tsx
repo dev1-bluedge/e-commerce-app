@@ -105,7 +105,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   main2: {
+    backgroundColor: "white",
     width: "100%",
+    height: "100%",
   },
   innercontainer: {
     width: "90%",

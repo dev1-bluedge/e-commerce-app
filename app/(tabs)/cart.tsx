@@ -111,7 +111,7 @@ const Cart = () => {
         paddingBottom: 10,
       }}
     >
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           <View style={styles.innercontainer}>
             <Ionicons
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   Inneritem: {
-    gap: 20,
+    gap: 10,
     flexDirection: "row",
     alignItems: "center",
   },
